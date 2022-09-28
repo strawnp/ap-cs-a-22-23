@@ -1,3 +1,5 @@
+import java.util.*;
+
 Random generator;
 
 void setup() {
@@ -13,6 +15,6 @@ void draw() {
   float x = sd * num + mean;
   
   noStroke();
-  fill(255, 10);
+  fill(255, 128, 128, 10);
   ellipse(x, 180, 16, 16);
 }

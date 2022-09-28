@@ -18,7 +18,7 @@ public class Ball {
     this.velX = random(-10, 10);
     this.velY = random(-10, 10);
     this.diam = 42;
-    this.acc = 1.001;
+    this.acc = 1;
     changeColor();
   }
 

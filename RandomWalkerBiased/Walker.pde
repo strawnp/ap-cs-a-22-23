@@ -19,28 +19,16 @@ public class Walker {
   }
   
   public void step() {
-    int choice = int(random(8));
+    float r = random(1);
     
-    if (choice == 0) {
+    if (r < 0.35) {
       this.y -= step;
-    } else if (choice == 1) {
-      this.y -= step;
+    } else if (r < 0.65) {
       this.x += step;
-    } else if (choice == 2) {
-      this.x += step;
-    } else if (choice == 3) {
-      this.x += step;
+    } else if (r < 0.9) {
       this.y += step;
-    } else if (choice == 4) {
-      this.y += step;
-    } else if (choice == 5) {
-      this.y += step;
-      this.x -= step;
-    } else if (choice == 6) {
-      this.x -= step;
     } else {
       this.x -= step;
-      this.y -= step;
     }
     
     this.x = constrain(this.x, 0, width - 32);

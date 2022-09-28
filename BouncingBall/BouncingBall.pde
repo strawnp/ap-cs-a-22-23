@@ -12,4 +12,18 @@ void draw() {
     b.render();
     b.update();
   }
+  println(balls.size());
+  println(frameRate);
+}
+
+void mousePressed() {
+  for (int i = 0; i < 100; i++) {
+    balls.add(new Ball());
+  }
+}
+
+void keyPressed() {
+  if (key == ' ') {
+    balls.add(new Ball());
+  }
 }
