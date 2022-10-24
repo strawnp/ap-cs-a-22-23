@@ -12,14 +12,18 @@ public class Mover {
   
   public void update() {
     PVector mouse = new PVector(mouseX, mouseY);
+    
     // 1. compute direction to travel in towards mouse
     PVector dir = PVector.sub(mouse, location);
     
+    stroke(random(256), random(256), random(256));
+    line(mouseX, mouseY, location.x, location.y);
+
     // 2. normalize that direction vector
     dir.normalize();
     
     // 3. scale the normalized vector
-    dir.mult(0.5);
+    dir.mult(random(0, 1));
     
     // 4. accelerate towards mouse
     acceleration = dir;
@@ -30,6 +34,8 @@ public class Mover {
   }
   
   public void display() {
+        fill(random(256), random(256), random(256));
+
     ellipse(location.x, location.y, 40, 40);
   }
 }
