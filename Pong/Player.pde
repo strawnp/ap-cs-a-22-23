@@ -19,6 +19,7 @@ public class Player {
   public float getY() { return location.y; }
   public float getWidth() { return pWidth; }
   public float getHeight() { return pHeight; }
+  public int getScore() { return score; }
   
   public void scorePoint() { score++; }
   
