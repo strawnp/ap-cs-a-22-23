@@ -22,6 +22,20 @@ public class Game {
     p2.update(dt);
     b.update(dt);
     
+    if (b.isOnLeft(p1)) {
+      p2.scorePoint();
+      b.reset();
+    } else if (b.isOnRight(p2)) {
+      p1.scorePoint();
+      b.reset();
+    }
+    
+    if (b.collides(p1)) {
+      b.flipDirection();
+    } else if (b.collides(p2)) {
+      b.flipDirection();
+    }
+    
     p1.render();
     p2.render();
     b.render();

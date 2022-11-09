@@ -1,6 +1,8 @@
 public class Player {
   private PVector location;
   private PVector velocity;
+  private float pWidth = 20;
+  private float pHeight = 80;
   private char upButton;
   private char downButton;
   private int score = 0;
@@ -13,10 +15,17 @@ public class Player {
     downButton = down;
   }
   
+  public float getX() { return location.x; }
+  public float getY() { return location.y; }
+  public float getWidth() { return pWidth; }
+  public float getHeight() { return pHeight; }
+  
+  public void scorePoint() { score++; }
+  
   public void render() {
     fill(255);
     stroke(255);
-    rect(location.x, location.y, 20, 80);
+    rect(location.x, location.y, pWidth, pHeight);
   }
   
   public void update(float dt) {
