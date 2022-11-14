@@ -42,19 +42,30 @@ public class Game {
       } else if (b.collides(p2)) {
         b.flipDirection();
       }
+
+      checkForVictory();
     }
 
     p1.render();
     p2.render();
-    b.render();
+
+    if (!gameState.equals("victory")) {
+      b.render();
+    }
 
     if (gameState.equals("serve")) {
       renderScores();
+    } else if (gameState.equals("victory")) {
+      if (p1.getScore() > p2.getScore()) {
+        printWinner(1);
+      } else {
+        printWinner(2);
+      }
     }
   }
 
   void checkState() {
-    if (keyPressed && key == ' ') {
+    if (keyPressed && key == ' ' && gameState.equals("serve")) {
       gameState = "play";
     }
   }
@@ -65,5 +76,18 @@ public class Game {
     stroke(255);
     text(p1.getScore(), width / 4, 100);
     text(p2.getScore(), 3 * width / 4, 100);
+  }
+
+  void checkForVictory() {
+    if (p1.getScore() == 11 || p2.getScore() == 11) {
+      gameState = "victory";
+    }
+  }
+
+  void printWinner(int winner) {
+    textSize(72);
+    textAlign(CENTER, CENTER);
+    stroke(255);
+    text("Player " + winner + " wins!", width / 2, height / 2);
   }
 }
