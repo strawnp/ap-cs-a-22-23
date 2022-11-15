@@ -1,13 +1,17 @@
+import processing.sound.*;
+
 public class Game {
   private Player p1;
   private Player p2;
   private Ball b;
   private String gameState = "serve";
+  private SoundFile hit;
 
-  public Game() {
+  public Game(PApplet p) {
     p1 = new Player(10, 10, 'w', 's');
     p2 = new Player(width - 30, height - 90, 'i', 'k');
     b = new Ball();
+    hit = new SoundFile(p, "hit.wav");
   }
 
   public void run(float dt) {
@@ -38,8 +42,10 @@ public class Game {
       }
 
       if (b.collides(p1)) {
+        hit.play();
         b.flipDirection();
       } else if (b.collides(p2)) {
+        hit.play();
         b.flipDirection();
       }
 
