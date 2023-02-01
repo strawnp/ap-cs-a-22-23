@@ -1,17 +1,22 @@
 // runner file
-Particle p;
+ArrayList<ParticleSystem> ps;
 
 void setup() {
   size(640, 360);
-  p = new Particle(new PVector(width / 2, 10));
+  ps = new ArrayList<>();
+  
+  ps.add(new ParticleSystem());
 }
 
 void draw() {
   background(255);
-  p.update();
-  p.display();
   
-  if (p.isDead()) {
-    println("Particle dead!");
+  for (ParticleSystem p : ps) {
+    p.run();
   }
+}
+
+void mousePressed() {
+  // ps.remove(0);
+  ps.add(new ParticleSystem(new PVector(mouseX, mouseY)));
 }

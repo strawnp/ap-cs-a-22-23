@@ -11,6 +11,19 @@ public class Particle {
     lifespan = 255;
   }
   
+  public PVector getLocation() {
+    return this.location;
+  }
+  
+  public float getLifespan() {
+    return this.lifespan;
+  }
+  
+  public void run() {
+    update();
+    display();
+  }
+  
   public void update() {
     velocity.add(acceleration);
     location.add(velocity);
@@ -19,7 +32,7 @@ public class Particle {
   
   public void display() {
     stroke(0, lifespan);
-    fill(175, lifespan);
+    fill(165, 172, 175, lifespan);
     ellipse(location.x, location.y, 8, 8);
   }
   
